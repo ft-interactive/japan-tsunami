@@ -15,13 +15,15 @@ select('[data-map]').forEach(function (el) {
   maps[slug] = el;
   el.parentNode.removeChild(el);
 });
+console.log(maps);
+
 
    // inside the story div, replace all the "MAP:" h1s with their corresponding map element
 select('h1', story).forEach(function (h1) {
-  // if (h1.textContent.substring(0, 5) === 'MAP: ') {
-  //   var slug = h1.textContent.substring(5);
-  //   h1.parentNode.replaceChild(maps[slug], h1);
-  // }
+  if (h1.textContent.substring(0, 5) === 'MAP: ') {
+    var slugMap = h1.textContent.substring(5);
+    h1.parentNode.replaceChild(maps[slugMap], h1);
+  }
 
   if (h1.textContent.substring(0, 7) === 'SHARE: ') {
     var slugShare = h1.textContent.substring(7);

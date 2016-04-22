@@ -13,6 +13,9 @@ body {
   font-family: $font-sans;
 }
 
+.mlxlshow { @include oGridColspan((default:  hide, S: 12, L: 10, XL: 8)); @include oGridCenter;}
+.sshow { @include oGridColspan((default:  hide, S: 12, M: hide));}
+.defaultshow { @include oGridColspan((default: 12, S: hide)); }
 
 .site-header {
   position: relative;
@@ -31,9 +34,9 @@ body {
     }
   }
 }
-    .masthead {
-      height: 18px;
-    }
+.masthead {
+  height: 18px;
+}
 
 .video-container {
   display: block;
@@ -123,11 +126,11 @@ main p {
 
   > h3 {
     text-align: center;
-    font-family: $font-display;
-    font-style: italic;
-    font-size: 3em;
-    letter-spacing: 0.02em;
-    color: #9e2f50;
+    font-family: $font-sans;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 0;
+    color: oColorsGetPaletteColor('grey-tint5');
   }
   
   > h4 {
@@ -188,8 +191,9 @@ main p {
     max-width: 600px;
     width: 100%;
     color: oColorsGetPaletteColor('grey-tint5');
-    margin: 2em auto 1.5em;
+    margin: 0.5em auto 1.5em;
     font-size: 0.875em;
+    border-collapse: collapse;
     > thead > tr > th {
         padding: 5px;
         background: oColorsGetPaletteColor('pink-tint1');
