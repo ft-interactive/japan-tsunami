@@ -1,4 +1,5 @@
 @import 'o-colors/main';
+@import 'o-grid/main';
 
 $font-sans: MetricWeb, sans-serif;
 $font-serif: Georgia, serif;
@@ -14,15 +15,408 @@ body {
 
 
 .site-header {
+  position: relative;
   padding: 18px 0 14px;
   text-align: center;
-  border-bottom: 1px solid #e9decf;
+  border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
+  // background: oColorsGetPaletteColor('black');
+  z-index:10;
 
   > a {
     opacity: 0.75;
-    &:hover { opacity: 1; }
+    transition: opacity, 0.3s; 
+    &:hover { 
+      opacity: 1;
+      transition: opacity, 0s; 
+    }
   }
 }
     .masthead {
       height: 18px;
     }
+
+.video-container {
+  display: block;
+  position: relative;
+  margin-top: 20px;
+  padding-left: 0;
+  margin-bottom: 1.5em;
+}
+.video-frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border: none;
+}
+
+.video-js.vjs-dock-text {
+  display: none;
+}
+
+main p {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  max-width: 600px;
+  margin: 0.75em auto;
+  font-weight: 200;
+  color: #333333;
+}
+
+.content {
+  @include oGridCenter;
+  @include oGridColspan((default: 12));
+  counter-reset: sections;
+  > p:first-of-type {
+      max-width: 800px;
+      text-align: center;
+      font-family: $font-serif;
+      font-size: 1.1em;
+      line-height: 1.5em;
+      margin-bottom: 1em;
+      color: oColorsGetPaletteColor('grey-tint5');
+    > a {
+      text-decoration: none;
+      color: #2e6e9e;
+      font-size: 1rem;
+      transition: color 0.3s;
+      &:hover {
+        color: #000000;
+        transition: color 0s;
+      }
+    }
+  }
+
+  > h1 {
+    font-family: $font-display;
+    font-weight: normal;
+    text-align: center;
+    font-size: 2.2em;
+    margin: 1.2rem 0 0.6rem;
+  }
+
+  // > p:nth-of-type(2) {
+  //   max-width: 800px;
+  //   text-align: center;
+  //   font-family: $font-serif;
+  //   font-size: 1.2em;
+  //   line-height: 1.35em;
+  //   margin-bottom: 1em;
+  //   color: oColorsGetPaletteColor('grey-tint5');
+  // }
+
+  > h6 {
+    max-width: 600px;
+    margin: 0 auto;
+    color: oColorsGetPaletteColor('pink-tint5');
+    font-weight: 200;
+    text-align: center;
+    margin-top: 1em;
+    font-size: 0.875em;
+    > .bullet {
+      margin: 0 10px;
+    }
+    }
+
+  > h3 {
+    text-align: center;
+    font-family: $font-display;
+    font-style: italic;
+    font-size: 3em;
+    letter-spacing: 0.02em;
+    color: #9e2f50;
+  }
+  
+  > h4 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #333333;
+  }
+
+  > h2 {
+    font-size: 1.5em;
+    margin: 1.7em 0 0.4em;
+
+    text-align: center;
+    color: #333333;
+    font-weight: 600;
+  
+    &:before {
+      display: block;
+      background-size: 200px 60px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 50px;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%2760%27%20viewBox%3D%270%200%20200%2060%27%3E%3Cpath%20fill%3D%27%23CEC6B9%27%20d%3D%27M0%2030h200v1H0z%27%2F%3E%3Ccircle%20fill%3D%27%23FFF1E0%27%20cx%3D%27100.2%27%20cy%3D%2730%27%20r%3D%2730%27%2F%3E%3Ccircle%20fill%3D%27%23FFF1E0%27%20stroke%3D%27%23CEC6B9%27%20stroke-miterlimit%3D%2710%27%20cx%3D%27100.2%27%20cy%3D%2730%27%20r%3D%2720%27%2F%3E%3C%2Fsvg%3E");
+      text-align: center;
+      line-height: 50px;
+      font-family: FinancierDisplay;
+      font-weight: normal;
+      color: #9e2f50;
+      margin-bottom: 12px;
+      font-size: 1.75rem;
+      content: counter(sections);
+      counter-increment: sections;
+    }
+  }
+  > ul {
+    max-width: 600px;
+    margin: 1.5em auto;
+    padding: 10px 10px 10px 40px;
+    border-top: 1px solid oColorsGetPaletteColor('pink-tint4');
+    border-bottom: 1px solid oColorsGetPaletteColor('pink-tint4');
+    box-sizing: border-box;
+
+    > li {
+      list-style: list-item;
+      margin-bottom: 10px;
+      color: oColorsGetPaletteColor('grey-tint3');
+      font-size: 1.1rem;
+      line-height: 1.4em;
+      font-weight: 200;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+  > table {
+    max-width: 600px;
+    width: 100%;
+    color: oColorsGetPaletteColor('grey-tint5');
+    margin: 2em auto 1.5em;
+    font-size: 0.875em;
+    > thead > tr > th {
+        padding: 5px;
+        background: oColorsGetPaletteColor('pink-tint1');
+        border-bottom: 1px solid oColorsGetPaletteColor('pink-tint3');
+        font-weight: 600;
+    }
+    > tbody tr {
+      &:nth-child(even) {
+        background: oColorsGetPaletteColor('pink-tint1');
+      }
+      > td {
+        padding: 5px;
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #2e6e9e;
+    font-size: 1em;
+    transition: color 0.3s;
+    &:hover {
+      color: #000000;
+      transition: color 0s;
+    }
+  }
+}
+
+.updated {
+  text-transform: uppercase;
+  color: #9e2f50;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* share links */
+
+$twitter-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTMgLTEwMyA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS04MS44NjItODkuNzg2Yy0uODIuMzU3LTEuNy42LTIuNjI0LjcwOC45NDMtLjU1NiAxLjY2OC0xLjQzNiAyLjAxLTIuNDgzLS44ODMuNTEtMS44NjIuODgtMi45MDIgMS4wOC0uODMzLS44Ny0yLjAyLTEuNDItMy4zMzctMS40Mi0yLjUyMyAwLTQuNTcgMi4wMS00LjU3IDQuNDkgMCAuMzUuMDQuNjkuMTE4IDEuMDItMy44LS4xOS03LjE2Ny0xLjk3OC05LjQyLTQuNjktLjM5NC42Ni0uNjIgMS40My0uNjIgMi4yNiAwIDEuNTUuODA3IDIuOTMgMi4wMzMgMy43My0uNzUtLjAyNS0xLjQ1NC0uMjI4LTIuMDctLjU2di4wNTRjMCAyLjE3NiAxLjU3MyAzLjk5IDMuNjY3IDQuNC0uMzg0LjEwNC0uNzkuMTYtMS4yMDQuMTYtLjMgMC0uNTgtLjAyNy0uODYtLjA4LjU4IDEuNzgyIDIuMjcgMy4wOCA0LjI3IDMuMTE2LTEuNTcgMS4yMDUtMy41NCAxLjkyMy01LjY4IDEuOTIzLS4zNyAwLS43NC0uMDI2LTEuMDktLjA2NyAyLjAyIDEuMjcyIDQuNDIgMi4wMTUgNyAyLjAxNSA4LjQgMCAxMy02Ljg0IDEzLTEyLjc3IDAtLjE5NC0uMDA3LS4zOS0uMDE4LS41OC44OS0uNjMzIDEuNjY1LTEuNDI1IDIuMjgtMi4zMjV6Ii8+PC9zdmc+';
+
+$facebook-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTQgLTEwNSA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS05Ny05MS40NHYyLjk1aC0yLjE3djMuNjJILTk3djEwLjcyaDQuNDN2LTEwLjcyaDNzLjI2LTEuNzMuNC0zLjYyaC0zLjM4di0yLjQ3YzAtLjM3LjUtLjg3Ljk2LS44N2gyLjQzdi0zLjc1aC0zLjI4Yy00LjY2IDAtNC41NSAzLjYzLTQuNTUgNC4xNnoiLz48L3N2Zz4=';
+
+$linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTMgLTEwMyA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS0xMDMuMzMyLTkxLjMzYy41My41MzUgMS4xNy44MDMgMS45MTcuODAzLjc1IDAgMS4zODgtLjI2OCAxLjkxNy0uODAzLjUzLS41MzUuNzk1LTEuMTgzLjc5NS0xLjk0MiAwLS43Ni0uMjY1LTEuNDA0LS43OTUtMS45MzRzLTEuMTctLjc5NS0xLjkxNy0uNzk1Yy0uNzQ4IDAtMS4zODcuMjYtMS45MTcuNzlzLS43OTUgMS4xNy0uNzk1IDEuOTMuMjY1IDEuNDA3Ljc5NSAxLjk0MnptNC4yMzYgMTcuNTgzdi0xNC44M2gtNC41ODh2MTQuODNoNC41ODh6bTE3LjIyMyAwdi05LjM5YzAtMS45MjMtLjQ5LTMuMzg3LTEuNDc1LTQuMzkyLS45ODMtMS0yLjI5NC0xLjUtMy45MzMtMS41LS41OSAwLTEuMTUuMDg2LTEuNjcuMjU1LS41Mi4xNy0uOTQuMzc0LTEuMjcuNjE1LS4zMy4yNC0uNjE3LjQ4LS44Ni43Mi0uMjQ4LjI0LS40Mi40NDItLjUxOC42MDZsLS4xNjUuMjZ2LTEuOTk2aC00LjQwOHYxNC44M2g0LjQwN3YtNy43ODVjMC0xLjA2LjI0LTEuODguNzItMi40Ni40ODQtLjU4IDEuMTc3LS44NjcgMi4wODQtLjg2NyAxLjY3IDAgMi41MDggMS4xMSAyLjUwOCAzLjMyN3Y3Ljc4aDQuNTc0eiIvPjwvc3ZnPg==';
+
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.article-header__share-links {
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.moresharelinks {
+  max-width: 600px;
+  margin: 2.5em auto 1em;
+   &:before {
+    width: 60px;
+    border-top: 1px solid oColorsGetPaletteColor('pink-tint4');
+    content: '';
+    display: block;
+    text-align: left;
+    margin-left: 10px;
+  }
+}
+
+.share-links {  
+  margin-left: 10px;
+  > p { @include visually-hidden; }
+
+  > ul {
+    list-style: none;
+    padding-left: 0;
+
+    > li {
+      display: inline-block;
+      &:not(:first-of-type) { margin-left: 10px; }
+    }
+  }
+
+
+
+  &__link {
+    $size: 40px;
+
+    display: block;
+    width: $size;
+    height: $size;
+    border-radius: 2px;
+    background-size: $size $size;
+
+    &--twitter { background-image: url('data:image/svg+xml;base64,' + $twitter-logo); }
+    &--facebook { background-image: url('data:image/svg+xml;base64,' + $facebook-logo); }
+    &--linked-in { background-image: url('data:image/svg+xml;base64,' + $linked-in-logo); }
+
+    &:hover { background-color: oColorsGetPaletteColor('pink-tint2'); }
+    &:active { background-color: oColorsGetPaletteColor('pink-tint3'); }
+
+    > span { @include visually-hidden; }
+  }
+
+}
+
+.byline {
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 200;
+  color: #74736c;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-top: 1px solid oColorsGetPaletteColor('pink-tint3');
+  padding-top: 8px;
+
+  div {
+    margin-bottom: 4px;
+  }
+
+  .by,
+  .source {
+    font-weight: 600;
+  }
+  a {
+    text-decoration: none;
+    color: #2e6e9e;
+    transition: color 0.3s;
+  }
+  a:hover {
+    color: #000000;
+    transition: color 0s;
+  }
+}
+
+@include oGridRespondTo(L) {
+  .content {
+    > h1 {
+      font-size: 3.75em;
+      margin: 1.6rem 0 0.5rem;
+    }
+    > p:first-of-type {
+      font-family: $font-serif;
+      font-size: 1.33rem;
+      line-height: 2rem;
+    }
+  }
+}
+ @include oGridRespondTo($from: M, $until: L) {
+  .content {
+    > h1 {
+      font-size: 3.25em;
+    }
+    > p:first-of-type {
+      font-size: 1.25em;
+      line-height: 1.5em;
+    }
+  }
+}
+
+@include oGridRespondTo($from: S) {
+  .content {
+
+    > h2 {
+      margin: 1.75em 0 0.67em;
+      font-size: 1.75em;
+    }
+    > h6 {
+      font-size: 1em;
+    }
+  }
+  
+  main p {
+    font-size: 1.25em;
+    line-height: 1.875rem;
+  }
+
+  
+
+}
+
+@include oGridRespondTo(M) {  
+  .share-links {  
+    margin-left: 0;
+  }
+  .moresharelinks {
+    &:before {
+      margin-left: 0;
+    }
+  }
+  .content {
+    > p:first-of-type a {
+      font-size: 1.2rem;
+    }
+    > h2:before {
+      font-size: 2rem;
+    }
+  }
+  .stories__story--container {
+    max-width: 167px;
+  }
+  .stories__story--image {
+    float: left;
+    margin-right: 0.5em;
+    width: 167px;
+    > img {
+      width: 167px;
+    }
+  }
+}
+@include oGridRespondTo($from: S, $until: M) {
+  .content {
+    > h1 {
+      font-size: 3em;
+    }
+   > p:first-of-type {
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
+  }
+}
+
+@include oGridRespondTo($from: S) {
+  .video-container {
+     padding-left: 0;
+   }
+}
+
