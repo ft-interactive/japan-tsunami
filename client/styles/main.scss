@@ -14,8 +14,15 @@ body {
 }
 
 .mlxlshow { @include oGridColspan((default:  hide, S: 12, L: 10, XL: 8)); @include oGridCenter;}
+.mlxlshow-chart { @include oGridColspan((default:  hide, M: 10, L: 8)); @include oGridCenter;}
+.mlxlshow-wide { @include oGridColspan((default:  hide, M: 12, XL: 10)); @include oGridCenter;}
 .sshow { @include oGridColspan((default:  hide, S: 12, M: hide));}
 .defaultshow { @include oGridColspan((default: 12, S: hide)); }
+
+[data-map="impact"] {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 .site-header {
   position: relative;
@@ -43,7 +50,7 @@ body {
   position: relative;
   margin-top: 20px;
   padding-left: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: 0;
 }
 .video-frame {
   width: 100%;
@@ -61,8 +68,8 @@ body {
 }
 
 main p {
-  font-size: 1.2rem;
-  line-height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.3rem;
   max-width: 600px;
   margin: 0.75em auto;
   font-weight: 200;
@@ -119,9 +126,22 @@ main p {
     text-align: center;
     margin-top: 1em;
     font-size: 0.875em;
-    > .bullet {
-      margin: 0 10px;
+      > .bullet {
+        margin: 0 10px;
+      }
     }
+
+  > h5 {
+    max-width: 600px;
+    margin: 0 auto;
+    color: oColorsGetPaletteColor('pink-tint5');
+    font-weight: 200;
+    // text-align: center;
+    margin-top: 1em;
+    font-size: 0.8em;
+      > .bullet {
+        margin: 0 10px;
+      }
     }
 
   > h3 {
@@ -148,6 +168,10 @@ main p {
     text-align: center;
     color: #333333;
     font-weight: 600;
+
+    &:first-of-type {
+      margin: 1em 0 0.67em;
+    }
   
     &:before {
       display: block;
@@ -372,6 +396,9 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
     font-size: 1.25em;
     line-height: 1.875rem;
   }
+  .video-container {
+    margin-bottom: 1.5em;
+  }
 
   
 
@@ -422,5 +449,9 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   .video-container {
      padding-left: 0;
    }
+ main p {
+   font-size: 1.2rem;
+   line-height: 1.5rem;
+ }  
 }
 
