@@ -13,16 +13,61 @@ body {
   font-family: $font-sans;
 }
 
+.video-frame { @include oGridColspan((default: 12)); @include oGridCenter;}
 .mlxlshow { @include oGridColspan((default:  hide, S: 12, L: 10, XL: 8)); @include oGridCenter;}
-.smlxlshow-chart { @include oGridColspan((default:  hide, S: 12, M: 10, L: 7, XL: 6)); @include oGridCenter; margin-top: 20px;}
-.mlxlshow-chart { @include oGridColspan((default:  hide, M: 10, L: 8)); @include oGridCenter; margin-top: 20px;}
+.smlxlshow-chart { @include oGridColspan((default:  hide, S: 12, M: 10, L: 7, XL: 6)); @include oGridCenter; margin-top: 12px;}
+.mlxlshow-chart { @include oGridColspan((default:  hide, M: 10, L: 8)); @include oGridCenter; margin-top: 12px;}
 .mlxlshow-wide { @include oGridColspan((default:  hide, M: 12, XL: 10)); @include oGridCenter;}
 .sshow { @include oGridColspan((default:  hide, S: 12, M: hide));}
 .defaultshow { @include oGridColspan((default: 12, S: hide)); }
 .defaultshow-reduce { @include oGridColspan((default: 10, S: hide)); @include oGridCenter;}
+.bignum { 
+  @include oGridColspan((default: 12));
+  @include oGridCenter;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  &:after {
+    display: block;
+    content: '';
+    border-bottom: 4px solid oColorsGetPaletteColor('grey-tint4');
+    width: 100px;
+    margin: 0 auto;
+  }
+  &:before {
+    display: block;
+    content: '';
+    border-top: 1px solid oColorsGetPaletteColor('grey-tint4');
+    width: 100px;
+    margin: 0 auto;
+  }
+}
+.fig {
+  padding: 4px 0 14px;
+  color: oColorsGetPaletteColor('grey-tint5');
+  font-size: 24px;
+  font-weight: 200;
+}
+
+.bigFig {
+  font-size: 60px;
+  font-weight: 400;
+  color: oColorsGetPaletteColor('claret');
+}
+
+.figNote {
+  font-size: 16px;
+}
+
+[data-map="nankai"],
+[data-map="industries"] {
+  margin-top: 20px;
+}
 
 [data-map="impact"],
-[data-map="economic-impact"] {
+[data-map="economic-impact"],
+[data-map="reduce-impact-economic"],
+[data-map="reduce-impact"] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -54,18 +99,14 @@ body {
   margin-top: 20px;
   padding-left: 0;
   margin-bottom: 0;
+  max-width: 100%;
 }
 .video-frame {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  border: none;
+  padding-top: 56.25%;
 }
-
+.video-js.vjs-big-play-button:before {
+  content:'►';
+}
 .video-js.vjs-dock-text {
   display: none;
 }
@@ -76,7 +117,7 @@ main p {
   max-width: 600px;
   margin: 0.75em auto;
   font-weight: 200;
-  color: #333333;
+  color: rgba(0,0,0,0.9);
 }
 
 .content {
@@ -89,7 +130,7 @@ main p {
       font-family: $font-serif;
       font-size: 1.1em;
       line-height: 1.5em;
-      margin-bottom: 1em;
+      margin-bottom: 0;
       color: oColorsGetPaletteColor('grey-tint5');
     > a {
       text-decoration: none;
@@ -108,7 +149,7 @@ main p {
     font-weight: normal;
     text-align: center;
     font-size: 2.2em;
-    margin: 1.2rem 0 0.6rem;
+    margin: 1rem 0 1.2rem;
   }
 
   // > p:nth-of-type(2) {
@@ -276,7 +317,7 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
 
 .article-header__share-links {
   text-align: center;
-  margin-top: 1.5em;
+  margin-top: 1em;
 }
 
 .moresharelinks {
@@ -362,7 +403,7 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   .content {
     > h1 {
       font-size: 3.75em;
-      margin: 1.6rem 0 0.5rem;
+      margin: 1.4rem 0 2.2rem;
     }
     > p:first-of-type {
       font-family: $font-serif;
@@ -375,6 +416,7 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   .content {
     > h1 {
       font-size: 3.25em;
+      margin: 1.4rem 0 2rem;
     }
     > p:first-of-type {
       font-size: 1.25em;
@@ -403,7 +445,25 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
     margin-bottom: 1.5em;
   }
 
-  
+  .bignum { 
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .fig {
+    padding: 4px 0 20px;
+    font-size: 36px;
+    font-weight: 200;
+  }
+
+  .bigFig {
+    font-size: 80px;
+    font-weight: 400;
+    color: oColorsGetPaletteColor('claret');
+  }
+
+  .figNote {
+    font-size: 18px;
+  }
 
 }
 
@@ -434,6 +494,10 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
     > img {
       width: 167px;
     }
+  }
+  [data-map="nankai"],
+  [data-map="industries"] {
+    margin-top: 20px;
   }
 }
 @include oGridRespondTo($from: S, $until: M) {

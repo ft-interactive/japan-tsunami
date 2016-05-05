@@ -38,6 +38,11 @@ select('h1', story).forEach(function (h1) {
     h1.parentNode.replaceChild(maps[slugChart], h1);
   }
 
+  if (h1.textContent.substring(0, 7) === 'ASIDE: ') {
+    var slugAside = h1.textContent.substring(7);
+    h1.parentNode.replaceChild(maps[slugAside], h1);
+  }
+
   // if (h1.textContent.substring(0, 8) === 'BULLET: ') {
   //   var bulletText = h1.textContent.substring(8);
   //   bullets.push(bulletText);
@@ -48,6 +53,8 @@ select('h1', story).forEach(function (h1) {
   //   h1.parentNode.removeChild(h1);
   // }
 });
+
+document.querySelector('.moresharelinks').innerHTML = maps.sharelinks.innerHTML;
 
 function select(selector, parent = document) {
   // return an array of elements matching the selector
