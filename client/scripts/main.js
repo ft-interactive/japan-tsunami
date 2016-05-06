@@ -1,5 +1,7 @@
 // YOUR CODE HERE
-// var spreadsheet;
+
+import storyItem from '../templates/_story_item.hbs';
+import storiesTemplate from '../templates/stories.hbs';
 
 const content = spreadsheet.content[0].content;
 
@@ -53,6 +55,13 @@ select('h1', story).forEach(function (h1) {
   //   h1.parentNode.removeChild(h1);
   // }
 });
+
+var storiesHTML = storiesTemplate(spreadsheet.stories, {
+  partials: {
+    story_item: storyItem,
+  }
+});
+document.querySelector('.stories__container').innerHTML = storiesHTML;
 
 document.querySelector('.moresharelinks').innerHTML = maps.sharelinks.innerHTML;
 
