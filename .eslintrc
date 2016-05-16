@@ -10,5 +10,7 @@ rules:
   comma-dangle: 0
   no-inline-comments: 0
   camelcase: 0
+  no-unused-vars: 0
 globals:
-  spreadsheet: true
+  spreadsheet: true,
+  writeCredits: true

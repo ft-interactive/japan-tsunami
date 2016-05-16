@@ -14,7 +14,8 @@ body {
 }
 
 .video-frame { @include oGridColspan((default: 12)); @include oGridCenter;}
-.mlxlshow { @include oGridColspan((default:  hide, S: 12, L: 10, XL: 8)); @include oGridCenter;}
+.mlxlshow { @include oGridColspan((default:  hide, M: 12, L: 10, XL: 8)); @include oGridCenter;}
+.smlxlshow { @include oGridColspan((default:  hide, S: 12, L: 10, XL: 8)); @include oGridCenter;}
 .smlxlshow-chart { @include oGridColspan((default:  hide, S: 12, M: 10, L: 7, XL: 6)); @include oGridCenter; margin-top: 12px;}
 .mlxlshow-chart { @include oGridColspan((default:  hide, M: 10, L: 8)); @include oGridCenter; margin-top: 12px;}
 .mlxlshow-wide { @include oGridColspan((default:  hide, M: 12, XL: 10)); @include oGridCenter;}
@@ -23,7 +24,7 @@ body {
 .defaultshow-reduce { @include oGridColspan((default: 10, S: hide)); @include oGridCenter;}
 .story-promo { @include oGridColspan((default:  12)); @include oGridCenter;}
 .bignum { 
-  @include oGridColspan((default: 12));
+  @include oGridColspan((default: 9, S: 6, M: 4, L: 3));
   @include oGridCenter;
   text-align: center;
   margin-top: 24px;
@@ -58,16 +59,19 @@ body {
 
 .figNote {
   font-size: 16px;
+  color: oColorsGetPaletteColor('grey-tint3');
 }
 
 [data-map="nankai"],
-[data-map="industries"] {
+[data-map="industries"],
+[data-map="tsunami"] {
   margin-top: 20px;
 }
 
 [data-map="impact"],
 [data-map="economic-impact"],
 [data-map="reduce-impact-economic"],
+[data-map="tsunami"],
 [data-map="reduce-impact"] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -113,8 +117,8 @@ body {
 }
 
 main p {
-  font-size: 1rem;
-  line-height: 1.3rem;
+  font-size: 18px;
+  line-height: 24px;
   max-width: 600px;
   margin: 0.75em auto;
   font-weight: 200;
@@ -378,7 +382,6 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
 }
 
 .share-links {  
-  margin-left: 10px;
   > p { @include visually-hidden; }
 
   > ul {

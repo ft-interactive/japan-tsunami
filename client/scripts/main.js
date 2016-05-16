@@ -4,6 +4,8 @@ import storyItem from '../templates/_story_item.hbs';
 import storiesTemplate from '../templates/stories.hbs';
 
 const content = spreadsheet.content[0].content;
+var credits = spreadsheet.credits;
+console.log(credits);
 
 // put the HTML from the spreadsheet (originally markdown) into the story div
 var story = document.querySelector('.content');
@@ -61,9 +63,9 @@ var storiesHTML = storiesTemplate(spreadsheet.stories, {
     story_item: storyItem,
   }
 });
-document.querySelector('.stories__container').innerHTML = storiesHTML;
-
 document.querySelector('.moresharelinks').innerHTML = maps.sharelinks.innerHTML;
+document.querySelector('.stories__container').innerHTML = storiesHTML;
+document.querySelector('.byline').innerHTML = writeCredits(credits);
 
 function select(selector, parent = document) {
   // return an array of elements matching the selector
