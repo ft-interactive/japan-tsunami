@@ -130,6 +130,25 @@ main p {
   @include oGridColspan((default: 12));
   counter-reset: sections;
   > p:first-of-type {
+    text-align: center;
+    margin-bottom: 0;
+    font-family: $font-sans;
+    > a{
+      color: #9e2f50;
+      line-height: 17px;
+      font-size: 15px;
+      font-weight: 600;
+      border-bottom-color: rgba(0, 0, 0, 0);
+      text-decoration: none;
+      &:hover {
+        border-bottom-color: #4f1828;
+        color: #4f1828;
+        border-bottom-style: dotted;
+        border-bottom-width: 1px;
+      }
+    }
+  }
+  > p:nth-of-type(2) {
       max-width: 800px;
       text-align: center;
       font-family: $font-serif;
@@ -154,7 +173,7 @@ main p {
     font-weight: normal;
     text-align: center;
     font-size: 2.2em;
-    margin: 1rem 0 1.2rem;
+    margin: 0 0 1.2rem;
   }
 
   // > p:nth-of-type(2) {
@@ -453,9 +472,9 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   .content {
     > h1 {
       font-size: 3.75em;
-      margin: 1.4rem 0 2.2rem;
+      margin: 0 0 2.2rem;
     }
-    > p:first-of-type {
+    > p:nth-of-type(2) {
       font-family: $font-serif;
       font-size: 1.33rem;
       line-height: 2rem;
@@ -466,9 +485,9 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
   .content {
     > h1 {
       font-size: 3.25em;
-      margin: 1.4rem 0 2rem;
+      margin: 0 0 2rem;
     }
-    > p:first-of-type {
+    > p:nth-of-type(2) {
       font-size: 1.25em;
       line-height: 1.5em;
     }
@@ -529,8 +548,14 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
     }
   }
   .content {
-    > p:first-of-type a {
+    > p:nth-of-type(2) a {
       font-size: 1.2rem;
+    }
+    > p:first-of-type {
+        margin-top: 1.5rem;
+      > a {
+        font-size: 1.2rem;
+      }
     }
     > h2:before {
       font-size: 2rem;
@@ -557,7 +582,7 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
     > h1 {
       font-size: 3em;
     }
-   > p:first-of-type {
+   > p:nth-of-type(2) {
       font-size: 1.2em;
       line-height: 1.5em;
     }
