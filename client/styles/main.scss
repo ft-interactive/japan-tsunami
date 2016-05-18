@@ -159,7 +159,7 @@ main p {
     > a {
       text-decoration: none;
       color: #2e6e9e;
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: color 0.3s;
       &:hover {
         color: #000000;
@@ -585,6 +585,9 @@ $linked-in-logo: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3
    > p:nth-of-type(2) {
       font-size: 1.2em;
       line-height: 1.5em;
+    }
+    > p:nth-of-type(2) a {
+      font-size: 1.2rem;
     }
   }
 }
