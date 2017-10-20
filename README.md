@@ -40,7 +40,7 @@ Builds into a `dist` folder.
 
 ## Includes
 
-- Origami components, some via the [bower registry](http://registry.origami.ft.com/components) others via the [build service](https://build.origami.ft.com/).
+- Origami components, some via the [bower registry](https://origami-bower-registry.ft.com/components) others via the [build service](https://build.origami.ft.com/).
 - [Browserify](http://browserify.org/)
 - [node-sass](https://github.com/sass/node-sass)
 - Linting: [ESLint](http://eslint.org/) | ~~[SCSS-Lint](https://github.com/causes/scss-lint)~~*
